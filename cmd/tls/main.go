@@ -108,15 +108,15 @@ func main() {
 
 	// 已经生成了CA server.pem server-key.pem
 
-	if err := os.MkdirAll("/tmp/webhook/certs/", 0666); err != nil {
+	if err := os.MkdirAll("/etc/webhook/certs/", 0666); err != nil {
 		log.Panic(err)
 	}
 
-	if err := pkg.WriteFile("/tmp/webhook/certs/tls.crt", serverCertPEM.Bytes()); err != nil {
+	if err := pkg.WriteFile("/etc/webhook/certs/tls.crt", serverCertPEM.Bytes()); err != nil {
 		log.Panic(err)
 	}
 
-	if err := pkg.WriteFile("/tmp/webhook/certs/tls.key", serverPrivKeyPEM.Bytes()); err != nil {
+	if err := pkg.WriteFile("/etc/webhook/certs/tls.key", serverPrivKeyPEM.Bytes()); err != nil {
 		log.Panic(err)
 	}
 

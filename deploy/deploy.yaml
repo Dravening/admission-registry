@@ -47,7 +47,7 @@ spec:
       serviceAccountName: admission-registry-sa
       initContainers:
       - name: webhook-init
-        image: cnych/admission-registry-tls:v0.0.4
+        image: registry.cn-hangzhou.aliyuncs.com/draven_yyz/admission-registry-tls:v1.0
         imagePullPolicy: IfNotPresent
         env:
         - name: WEBHOOK_NAMESPACE
@@ -76,7 +76,7 @@ spec:
         - containerPort: 443
         volumeMounts:
         - name: webhook-certs
-          mountPath: /tmp/webhook/certs
+          mountPath: /etc/webhook/certs
           readOnly: true
       volumes:
       - name: webhook-certs
