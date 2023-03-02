@@ -67,7 +67,7 @@ spec:
           mountPath: /etc/webhook/certs
       containers:
       - name: webhook
-        image: cnych/admission-registry:v0.1.4
+        image: registry.cn-hangzhou.aliyuncs.com/draven_yyz/admission-registry:v1.0
         imagePullPolicy: IfNotPresent
         env:
         - name: WHITELIST_REGISTRIES
@@ -76,7 +76,7 @@ spec:
         - containerPort: 443
         volumeMounts:
         - name: webhook-certs
-          mountPath: /etc/webhook/certs
+          mountPath: /tmp/webhook/certs
           readOnly: true
       volumes:
       - name: webhook-certs
